@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6522700032472025"
+     crossorigin="anonymous"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CineVerse</title>
@@ -281,7 +282,27 @@ img{display:block}
 <body>
 
 <!-- AUTH -->
-<div id="authScreen">
+<<!-- PUB HAUT -->
+<div class="ad-container" style="margin:20px 0;text-align:center;">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-6522700032472025"
+       data-ad-slot="1234567890"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+</div>
+
+<div id="homeResults"></div>
+
+<!-- PUB BAS -->
+<div class="ad-container" style="margin:20px 0;text-align:center;">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-6522700032472025"
+       data-ad-slot="1234567890"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+</div>>
   <div class="auth-box">
     <div class="auth-logo">🎬 CineVerse</div>
     <div class="auth-sub">Ta plateforme cinéma personnalisée</div>
@@ -814,7 +835,7 @@ function getMultiSelected(elId){
 }
 
 // ---- PAGE NAV ----
-function showPage(id){
+function showPage(id){   currentPageId=id;    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));   document.querySelectorAll('.nav-item').forEach(b=>b.classList.toggle('active',b.dataset.page===id));   document.getElementById(id+'Page').classList.add('active');    // 🔥 recharge les pubs   refreshAds();    if(id==='favorites')renderFavorites();   if(id==='watched')renderWatched();   if(id==='upcoming')loadUpcoming();   if(id==='games'){     document.getElementById('gamesMenu').style.display='block';     document.getElementById('emojiGameArea').style.display='none';   } }
   currentPageId=id;
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(b=>b.classList.toggle('active',b.dataset.page===id));
@@ -1296,6 +1317,26 @@ if(currentUser){
   $('appLayout').style.display='grid';
   initApp();
 }
-</script>
+</script
+  // Gestion des pubs Google AdSense
+function loadAds(){
+  try{
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  }catch(e){
+    console.log("Erreur AdSense :", e);
+  }
+}
+
+// Charger les pubs au démarrage
+window.addEventListener("load", () => {
+  loadAds();
+});
+
+// Recharger les pubs quand tu changes de page
+function refreshAds(){
+  setTimeout(() => {
+    loadAds();
+  }, 500);
+}>
 </body>
 </html>
