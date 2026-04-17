@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 
 <html lang="fr">
-<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6522700032472025"
+     crossorigin="anonymous"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CineVerse</title>
-<!-- Google AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6522700032472025" crossorigin="anonymous"></script>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -27,9 +26,6 @@ img{display:block}
 ::-webkit-scrollbar{width:5px;height:5px}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:99px}
-
-/* AD CONTAINER */
-.ad-container{margin:20px 0;text-align:center;min-height:90px}
 
 /* AUTH SCREEN */
 #authScreen{position:fixed;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(232,54,93,.15),transparent 50%),radial-gradient(ellipse at 80% 80%,rgba(78,205,196,.1),transparent 50%),var(–bg);display:flex;align-items:center;justify-content:center;z-index:1000;padding:20px}
@@ -71,6 +67,7 @@ img{display:block}
 .nav-item:hover{background:var(–surface2);color:var(–text)}
 .nav-item.active{background:rgba(232,54,93,.12);color:var(–text);border:1px solid rgba(232,54,93,.2)}
 .nav-icon{width:20px;text-align:center;font-size:16px}
+.nav-label{}
 .nav-sep{height:1px;background:var(–border);margin:6px 4px}
 .sidebar-tip{margin-top:auto;padding:12px;background:var(–surface);border-radius:var(–radius-sm);font-size:12px;color:var(–muted);line-height:1.5}
 
@@ -247,7 +244,6 @@ img{display:block}
 .game-card h4{font-size:18px;font-weight:700;margin-bottom:6px}
 .game-card p{color:var(–muted);font-size:13px;margin-bottom:16px}
 .game-card .btn{width:100%}
-
 /* EMOJI GAME */
 .emoji-game{background:var(–bg3);border:1px solid var(–border);border-radius:var(–radius);padding:28px}
 .emoji-display{font-size:52px;letter-spacing:8px;text-align:center;margin:20px 0;line-height:1.4}
@@ -287,9 +283,31 @@ img{display:block}
 </head>
 <body>
 
-<!-- AUTH SCREEN -->
+<!-- AUTH -->
 
-<div id="authScreen">
+<<!-- PUB HAUT -->
+
+<div class="ad-container" style="margin:20px 0;text-align:center;">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-6522700032472025"
+       data-ad-slot="1234567890"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+</div>
+
+<div id="homeResults"></div>
+
+<!-- PUB BAS -->
+
+<div class="ad-container" style="margin:20px 0;text-align:center;">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-6522700032472025"
+       data-ad-slot="1234567890"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+</div>>
   <div class="auth-box">
     <div class="auth-logo">🎬 CineVerse</div>
     <div class="auth-sub">Ta plateforme cinéma personnalisée</div>
@@ -359,78 +377,65 @@ img{display:block}
   </aside>
 
   <main class="main">
+    <!-- HOME -->
+    <section class="page active" id="homePage">
+      <div class="page-header"><h2>Explorer le catalogue</h2><p>Films et séries – combine genres, plateformes et mots-clés</p></div>
+      <div class="filters-bar">
+        <div class="filters-row" style="margin-bottom:12px">
+          <div class="filter-group" style="flex:2;min-width:200px">
+            <label>Recherche</label>
+            <div class="search-input-wrap" style="width:100%">
+              <input class="ghost" id="searchInput" placeholder="Titre, acteur...">
+              <span class="search-icon">🔍</span>
+            </div>
+          </div>
+          <div class="filter-group">
+            <label>Type</label>
+            <div class="type-toggle">
+              <button class="type-btn active" data-type="movie" onclick="setType('movie',this)">🎬 Films</button>
+              <button class="type-btn" data-type="tv" onclick="setType('tv',this)">📺 Séries</button>
+            </div>
+          </div>
+          <div class="filter-group">
+            <label>Tri</label>
+            <select class="ghost" id="sortSelect">
+              <option value="popularity.desc">Popularité</option>
+              <option value="vote_average.desc">Note</option>
+              <option value="release_date.desc">Plus récent</option>
+            </select>
+          </div>
+          <button class="btn primary" onclick="doSearch(1)" style="align-self:flex-end;white-space:nowrap">Rechercher</button>
+        </div>
+        <div class="filters-row">
+          <div class="filter-group">
+            <label>Genres (multi)</label>
+            <div class="multi-select" id="genreMulti"></div>
+          </div>
+          <div class="filter-group">
+            <label>Plateformes (multi)</label>
+            <div class="multi-select" id="platformMulti"></div>
+          </div>
+          <div class="filter-group">
+            <label>Âge</label>
+            <select class="ghost" id="ageSelect">
+              <option value="">Tout public</option>
+              <option value="0">Tous âges</option>
+              <option value="6">6+</option>
+              <option value="12">12+</option>
+              <option value="16">16+</option>
+              <option value="18">18+</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div id="homeResults"></div>
+      <div class="pager" id="homePager"></div>
+    </section>
 
 ```
-<!-- HOME -->
-<section class="page active" id="homePage">
-  <div class="page-header"><h2>Explorer le catalogue</h2><p>Films et séries – combine genres, plateformes et mots-clés</p></div>
-  <!-- Pub haut page Accueil -->
-  <div class="ad-container">
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6522700032472025" data-ad-slot="1111111111" data-ad-format="auto" data-full-width-responsive="true"></ins>
-  </div>
-  <div class="filters-bar">
-    <div class="filters-row" style="margin-bottom:12px">
-      <div class="filter-group" style="flex:2;min-width:200px">
-        <label>Recherche</label>
-        <div class="search-input-wrap" style="width:100%">
-          <input class="ghost" id="searchInput" placeholder="Titre, acteur...">
-          <span class="search-icon">🔍</span>
-        </div>
-      </div>
-      <div class="filter-group">
-        <label>Type</label>
-        <div class="type-toggle">
-          <button class="type-btn active" data-type="movie" onclick="setType('movie',this)">🎬 Films</button>
-          <button class="type-btn" data-type="tv" onclick="setType('tv',this)">📺 Séries</button>
-        </div>
-      </div>
-      <div class="filter-group">
-        <label>Tri</label>
-        <select class="ghost" id="sortSelect">
-          <option value="popularity.desc">Popularité</option>
-          <option value="vote_average.desc">Note</option>
-          <option value="release_date.desc">Plus récent</option>
-        </select>
-      </div>
-      <button class="btn primary" onclick="doSearch(1)" style="align-self:flex-end;white-space:nowrap">Rechercher</button>
-    </div>
-    <div class="filters-row">
-      <div class="filter-group">
-        <label>Genres (multi)</label>
-        <div class="multi-select" id="genreMulti"></div>
-      </div>
-      <div class="filter-group">
-        <label>Plateformes (multi)</label>
-        <div class="multi-select" id="platformMulti"></div>
-      </div>
-      <div class="filter-group">
-        <label>Âge</label>
-        <select class="ghost" id="ageSelect">
-          <option value="">Tout public</option>
-          <option value="0">Tous âges</option>
-          <option value="6">6+</option>
-          <option value="12">12+</option>
-          <option value="16">16+</option>
-          <option value="18">18+</option>
-        </select>
-      </div>
-    </div>
-  </div>
-  <div id="homeResults"></div>
-  <div class="pager" id="homePager"></div>
-  <!-- Pub bas page Accueil -->
-  <div class="ad-container" style="margin-top:24px">
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6522700032472025" data-ad-slot="2222222222" data-ad-format="auto" data-full-width-responsive="true"></ins>
-  </div>
-</section>
-
 <!-- RANDOM -->
 <section class="page" id="randomPage">
   <div class="page-header"><h2>Film / Série aléatoire</h2><p>Génère au hasard dans le catalogue</p></div>
-  <!-- Pub page Aléatoire -->
-  <div class="ad-container">
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6522700032472025" data-ad-slot="3333333333" data-ad-format="auto" data-full-width-responsive="true"></ins>
-  </div>
   <div style="display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap">
     <div class="type-toggle">
       <button class="type-btn active" data-type="movie" onclick="setRandomType('movie',this)">🎬 Film</button>
@@ -444,10 +449,6 @@ img{display:block}
 <!-- FIND WITH AI -->
 <section class="page" id="findPage">
   <div class="page-header"><h2>🤖 Trouver un film/série</h2><p>Décris ce que tu cherches, l'IA trouve pour toi</p></div>
-  <!-- Pub page Trouver -->
-  <div class="ad-container">
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6522700032472025" data-ad-slot="4444444444" data-ad-format="auto" data-full-width-responsive="true"></ins>
-  </div>
   <div class="find-box">
     <h3>Décris ce que tu veux voir</h3>
     <p>Exemples : "Un film de science-fiction avec des voyages dans le temps", "Une comédie romantique légère des années 90", "Une série policière sombre comme Mindhunter"</p>
@@ -469,10 +470,6 @@ img{display:block}
 <!-- UPCOMING -->
 <section class="page" id="upcomingPage">
   <div class="page-header"><h2>📅 Prochainement</h2><p>Films à venir au cinéma</p></div>
-  <!-- Pub page Prochainement -->
-  <div class="ad-container">
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6522700032472025" data-ad-slot="5555555555" data-ad-format="auto" data-full-width-responsive="true"></ins>
-  </div>
   <div class="upcoming-stats">
     <div class="ustat-card"><strong id="upcomingCount">-</strong><span>films chargés</span></div>
     <div class="ustat-card"><strong>30</strong><span>jours à venir</span></div>
@@ -486,30 +483,18 @@ img{display:block}
 <!-- FAVORITES -->
 <section class="page" id="favoritesPage">
   <div class="section-header"><div><h2>❤️ Mes favoris</h2></div><span class="count-badge" id="favCount">0 film</span></div>
-  <!-- Pub page Favoris -->
-  <div class="ad-container">
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6522700032472025" data-ad-slot="6666666666" data-ad-format="auto" data-full-width-responsive="true"></ins>
-  </div>
   <div id="favResults"></div>
 </section>
 
 <!-- WATCHED -->
 <section class="page" id="watchedPage">
   <div class="section-header"><div><h2>👁️ Déjà vus</h2></div><span class="count-badge" id="watchedCount">0 film</span></div>
-  <!-- Pub page Déjà vus -->
-  <div class="ad-container">
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6522700032472025" data-ad-slot="7777777777" data-ad-format="auto" data-full-width-responsive="true"></ins>
-  </div>
   <div id="watchedResults"></div>
 </section>
 
 <!-- GAMES -->
 <section class="page" id="gamesPage">
   <div class="page-header"><h2>🎮 Mini-jeux cinéma</h2><p>Teste ta culture cinématographique</p></div>
-  <!-- Pub page Jeux -->
-  <div class="ad-container">
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6522700032472025" data-ad-slot="8888888888" data-ad-format="auto" data-full-width-responsive="true"></ins>
-  </div>
   <div id="gamesMenu">
     <div class="games-grid">
       <div class="game-card">
@@ -532,10 +517,6 @@ img{display:block}
 <!-- ACCOUNT -->
 <section class="page" id="accountPage">
   <div class="page-header"><h2>👤 Mon compte</h2></div>
-  <!-- Pub page Compte -->
-  <div class="ad-container">
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6522700032472025" data-ad-slot="9999999999" data-ad-format="auto" data-full-width-responsive="true"></ins>
-  </div>
   <div class="account-grid">
     <div class="account-card">
       <h4>Profil</h4>
@@ -561,10 +542,6 @@ img{display:block}
 <!-- SETTINGS -->
 <section class="page" id="settingsPage">
   <div class="page-header"><h2>⚙️ Réglages</h2></div>
-  <!-- Pub page Réglages -->
-  <div class="ad-container">
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6522700032472025" data-ad-slot="1010101010" data-ad-format="auto" data-full-width-responsive="true"></ins>
-  </div>
   <div class="settings-grid">
     <div class="setting-card">
       <h4>Données favoris</h4>
@@ -652,6 +629,7 @@ img{display:block}
 const API_KEY='dbf9646c1291b4d328ae1ba516389be2';
 const IMG='https://image.tmdb.org/t/p/w500';
 const IMG_ORIG='https://image.tmdb.org/t/p/original';
+const ANTHROPIC_KEY='';
 
 // PLATFORMS
 const ALL_PLATFORMS=[
@@ -712,7 +690,7 @@ const EMOJI_MOVIES=[
   {emojis:'🚢🧊💑',answer:'Titanic',title:'Titanic'},
   {emojis:'🧙‍♂️💍🌋',answer:'Le Seigneur des Anneaux',title:'Le Seigneur des Anneaux'},
   {emojis:'🃏🦇🌆',answer:'Batman',title:'Batman'},
-  {emojis:'🧸🍯🐝',answer:"Winnie l'Ourson",title:"Winnie l'Ourson"},
+  {emojis:'🧸🍯🐝',answer:'Winnie l\'Ourson',title:'Winnie l\'Ourson'},
   {emojis:'🌌⭐🚀👽',answer:'Star Wars',title:'Star Wars'},
   {emojis:'🦈🏖️😱',answer:'Les Dents de la Mer',title:'Les Dents de la Mer'},
   {emojis:'🤖🔴⚡',answer:'Transformers',title:'Transformers'},
@@ -725,13 +703,15 @@ const EMOJI_MOVIES=[
   {emojis:'🐘🎪🦋',answer:'Dumbo',title:'Dumbo'},
   {emojis:'💎🚂🎁',answer:'Le Pôle Express',title:'Le Pôle Express'},
   {emojis:'🎻⚓🇮🇹',answer:'Pinocchio',title:'Pinocchio'},
+  {emojis:'🌊🏄🦈',answer:'Soul Surfer',title:'Soul Surfer'},
   {emojis:'🧟‍♂️🧟‍♀️🔫',answer:'Resident Evil',title:'Resident Evil'},
   {emojis:'⚡🔨👨‍🦱',answer:'Thor',title:'Thor'},
   {emojis:'🦸‍♀️⭐🇺🇸',answer:'Wonder Woman',title:'Wonder Woman'},
   {emojis:'🔴🤖💪',answer:'Iron Man',title:'Iron Man'},
+  {emojis:'🐬🌊🤿',answer:'Flipper',title:'Flipper'},
 ];
 const EMOJI_TV=[
-  {emojis:'🩺🏥💉😰',answer:"Grey's Anatomy",title:"Grey's Anatomy"},
+  {emojis:'🩺🏥💉😰',answer:'Grey\'s Anatomy',title:'Grey\'s Anatomy'},
   {emojis:'⚗️🧪💊🔥',answer:'Breaking Bad',title:'Breaking Bad'},
   {emojis:'🏰🐉⚔️',answer:'Game of Thrones',title:'Game of Thrones'},
   {emojis:'🕵️‍♂️🔎🔢',answer:'Lost',title:'Lost'},
@@ -745,6 +725,7 @@ const EMOJI_TV=[
   {emojis:'🕵️📸🔍💀',answer:'Mindhunter',title:'Mindhunter'},
   {emojis:'👑🟡🍩🏠',answer:'Les Simpson',title:'Les Simpson'},
   {emojis:'🔥💻🎯🏦',answer:'Mr. Robot',title:'Mr. Robot'},
+  {emojis:'🌊🏝️🐍🦟',answer:'Lost',title:'Lost'},
 ];
 
 // FIND EXAMPLES
@@ -767,25 +748,6 @@ const apiUrl=(path)=>`https://api.themoviedb.org/3${path}`;
 const fetchJ=url=>fetch(url).then(r=>r.json());
 const region=()=>apiLang.startsWith('fr')?'FR':'US';
 const esc=s=>String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-
-// ---- ADSENSE ----
-function loadAds(){
-  try{
-    (window.adsbygoogle=window.adsbygoogle||[]).push({});
-  }catch(e){
-    console.log('Erreur AdSense :',e);
-  }
-}
-function refreshAds(){
-  // On recharge les ins non encore initialisées
-  setTimeout(()=>{
-    document.querySelectorAll('.page.active ins.adsbygoogle').forEach(ins=>{
-      if(!ins.getAttribute('data-ad-status')){
-        try{(window.adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}
-      }
-    });
-  },500);
-}
 
 // ---- AUTH ----
 function switchAuthTab(tab){
@@ -845,8 +807,6 @@ function initApp(){
   $('accSince').textContent=currentUser?.since||'-';
   $('accFavCount').textContent=favorites.length;
   $('accWatchCount').textContent=watched.length;
-  // Charge les pubs de la page active au démarrage
-  refreshAds();
 }
 function renderSidebar(){
   if(!currentUser)return;
@@ -872,7 +832,7 @@ function buildMultiSelect(elId,options){
   const el=$(elId);
   el.innerHTML=options.map(o=>`
     <label class="multi-select-item" onclick="toggleMulti(event,'${elId}','${o.id}')">
-      <input type="checkbox" value="${o.id}"> ${esc(o.name)}
+      <input type="checkbox" value="${o.id}" onchange=""> ${esc(o.name)}
     </label>`).join('');
 }
 function toggleMulti(e,elId,val){
@@ -887,17 +847,15 @@ function getMultiSelected(elId){
 }
 
 // ---- PAGE NAV ----
-function showPage(id){
+function showPage(id){   currentPageId=id;    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));   document.querySelectorAll('.nav-item').forEach(b=>b.classList.toggle('active',b.dataset.page===id));   document.getElementById(id+'Page').classList.add('active');    // 🔥 recharge les pubs   refreshAds();    if(id==='favorites')renderFavorites();   if(id==='watched')renderWatched();   if(id==='upcoming')loadUpcoming();   if(id==='games'){     document.getElementById('gamesMenu').style.display='block';     document.getElementById('emojiGameArea').style.display='none';   } }
   currentPageId=id;
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(b=>b.classList.toggle('active',b.dataset.page===id));
-  document.getElementById(id+'Page').classList.add('active');
+  $(`${id}Page`).classList.add('active');
   if(id==='favorites')renderFavorites();
   if(id==='watched')renderWatched();
   if(id==='upcoming')loadUpcoming();
   if(id==='games'){$('gamesMenu').style.display='block';$('emojiGameArea').style.display='none'}
-  // Recharge les pubs à chaque changement de page
-  refreshAds();
 }
 function toggleSidebar(){$('sidebar').classList.toggle('open');$('overlay').classList.toggle('show')}
 function closeSidebar(){$('sidebar').classList.remove('open');$('overlay').classList.remove('show')}
@@ -1004,11 +962,13 @@ async function openDetail(id,type='movie'){
     $('detailPoster').src=poster;
     $('detailBg').src=bg;
     $('detailOverview').textContent=details.overview||'Aucune description disponible.';
+    // META BADGES
     const genres=(details.genres||[]).slice(0,3).map(g=>`<span class="badge genre">${g.name}</span>`).join('');
     const score=`<span class="badge score">⭐ ${details.vote_average?details.vote_average.toFixed(1):'?'}</span>`;
     const year=`<span class="badge">${(details.release_date||details.first_air_date||'').slice(0,4)}</span>`;
     const runtime=details.runtime?`<span class="badge">${details.runtime} min</span>`:details.episode_run_time?.[0]?`<span class="badge">${details.episode_run_time[0]} min/ep</span>`:'';
     $('detailMeta').innerHTML=score+year+runtime+genres;
+    // STREAMING
     const box=providers.results?.[region()];
     const streamList=box?.flatrate||box?.rent||[];
     if(streamList.length){
@@ -1021,6 +981,7 @@ async function openDetail(id,type='movie'){
     } else {
       $('detailStreamingSection').style.display='none';
     }
+    // CAST
     const cast=(credits.cast||[]).slice(0,10);
     $('detailCast').innerHTML=cast.map(a=>`
       <div class="cast-item">
@@ -1028,11 +989,13 @@ async function openDetail(id,type='movie'){
         <div class="cast-name" title="${esc(a.name)}">${esc(a.name)}</div>
         <div class="cast-char" title="${esc(a.character||'')}">as ${esc(a.character||'?')}</div>
       </div>`).join('');
+    // TRAILER
     const trailers=(videos.results||[]).filter(v=>v.site==='YouTube'&&(v.type==='Trailer'||v.type==='Teaser'));
     const trailer=trailers[0];
     $('detailTrailer').innerHTML=trailer
       ?`<div class="trailer-wrap"><iframe src="https://www.youtube.com/embed/${trailer.key}?autoplay=0&rel=0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`
       :`<div class="no-trailer">🎬 Aucune bande-annonce disponible</div>`;
+    // ACTIONS
     const fav=favorites.some(x=>x.id===details.id&&x._type===type);
     const seen=watched.some(x=>x.id===details.id&&x._type===type);
     const pl=encodeURIComponent(JSON.stringify({...details,_type:type}));
@@ -1145,7 +1108,7 @@ function watchedCard(m,i){
     </div>
   </div>`;
 }
-function removeWatched(i){watched.splice(i,1);saveAll();renderWatched();toast("Retiré de l'historique")}
+function removeWatched(i){watched.splice(i,1);saveAll();renderWatched();toast('Retiré de l\'historique')}
 
 // ---- RANDOM ----
 async function doRandom(){
@@ -1200,7 +1163,7 @@ async function loadUpcoming(){
   }catch{$('upcomingResults').innerHTML='<div class="empty">❌ Erreur</div>'}
 }
 
-// ---- FIND WITH AI ----
+// ---- FIND WITH AI (TMDB keyword search) ----
 const FIND_GENRE_MAP={
   'science-fiction':'878','sci-fi':'878','espace':'878','robot':'878','ia':'878','futur':'878',
   'horreur':'27','peur':'27','effrayant':'27','monstre':'27',
@@ -1222,17 +1185,20 @@ async function doFindWithAI(){
   if(!input){toast('Décris ce que tu cherches !');return}
   $('findResult').innerHTML=`<div class="loading" style="padding:24px"><div class="spinner"></div>L'IA cherche pour toi...</div>`;
   try{
+    // Extract keywords from description to build TMDB query
     const lower=input.toLowerCase();
     const genreIds=[];
     for(const [kw,id] of Object.entries(FIND_GENRE_MAP)){
       if(lower.includes(kw)&&!genreIds.includes(id))genreIds.push(id);
     }
+    // Also try text search
     const words=input.split(/\s+/).filter(w=>w.length>3).slice(0,3).join(' ');
     const type=findType;
     const [searchData,discoverData]=await Promise.all([
       fetchJ(apiUrl(`/search/${type}?api_key=${API_KEY}&query=${encodeURIComponent(words)}&language=${apiLang}&page=1`)),
       genreIds.length?fetchJ(apiUrl(`/discover/${type}?api_key=${API_KEY}&language=${apiLang}&sort_by=vote_average.desc&vote_count.gte=100&with_genres=${genreIds.slice(0,3).join(',')}&page=1`)):Promise.resolve({results:[]}),
     ]);
+    // Merge and deduplicate, score by relevance
     const seen_ids=new Set();
     const merged=[];
     for(const m of [...(searchData.results||[]).slice(0,5),...(discoverData.results||[]).slice(0,8)]){
@@ -1335,7 +1301,7 @@ function renderGameOver(){
         <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
           <button class="btn primary" onclick="startEmojiGame('movie')">🎬 Rejouer Films</button>
           <button class="btn accent3" onclick="startEmojiGame('tv')">📺 Rejouer Séries</button>
-          <button class="btn soft" onclick="document.getElementById('gamesMenu').style.display='block';document.getElementById('emojiGameArea').style.display='none'">← Menu Jeux</button>
+          <button class="btn soft" onclick="$('gamesMenu').style.display='block';$('emojiGameArea').style.display='none'">← Menu Jeux</button>
         </div>
       </div>
     </div>`;
@@ -1363,7 +1329,26 @@ if(currentUser){
   $('appLayout').style.display='grid';
   initApp();
 }
-</script>
+</script
+  // Gestion des pubs Google AdSense
+function loadAds(){
+  try{
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  }catch(e){
+    console.log("Erreur AdSense :", e);
+  }
+}
 
+// Charger les pubs au démarrage
+window.addEventListener("load", () => {
+  loadAds();
+});
+
+// Recharger les pubs quand tu changes de page
+function refreshAds(){
+  setTimeout(() => {
+    loadAds();
+  }, 500);
+}>
 </body>
 </html>
