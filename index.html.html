@@ -1,10 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="fr">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6522700032472025"
-     crossorigin="anonymous"></script>
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CineVerse</title>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6522700032472025" crossorigin="anonymous"></script>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -26,147 +28,149 @@ img{display:block}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:99px}
 
+/* AD CONTAINER */
+.ad-container{margin:20px 0;text-align:center;min-height:90px}
+
 /* AUTH SCREEN */
-#authScreen{position:fixed;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(232,54,93,.15),transparent 50%),radial-gradient(ellipse at 80% 80%,rgba(78,205,196,.1),transparent 50%),var(--bg);display:flex;align-items:center;justify-content:center;z-index:1000;padding:20px}
+#authScreen{position:fixed;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(232,54,93,.15),transparent 50%),radial-gradient(ellipse at 80% 80%,rgba(78,205,196,.1),transparent 50%),var(–bg);display:flex;align-items:center;justify-content:center;z-index:1000;padding:20px}
 #authScreen.hidden{display:none}
-.auth-box{width:min(440px,100%);background:rgba(10,22,40,.95);border:1px solid var(--border2);border-radius:28px;padding:40px;backdrop-filter:blur(30px)}
-.auth-logo{font-family:'Syne',sans-serif;font-size:32px;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px;text-align:center}
-.auth-sub{text-align:center;color:var(--muted);margin-bottom:32px;font-size:14px}
-.auth-tabs{display:flex;gap:4px;background:var(--surface);border-radius:var(--radius-sm);padding:4px;margin-bottom:28px}
-.auth-tab{flex:1;padding:10px;border:none;background:transparent;color:var(--muted);border-radius:var(--radius-xs);font-weight:500;transition:.2s}
-.auth-tab.active{background:var(--surface2);color:var(--text)}
+.auth-box{width:min(440px,100%);background:rgba(10,22,40,.95);border:1px solid var(–border2);border-radius:28px;padding:40px;backdrop-filter:blur(30px)}
+.auth-logo{font-family:‘Syne’,sans-serif;font-size:32px;font-weight:800;background:linear-gradient(135deg,var(–accent),var(–accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px;text-align:center}
+.auth-sub{text-align:center;color:var(–muted);margin-bottom:32px;font-size:14px}
+.auth-tabs{display:flex;gap:4px;background:var(–surface);border-radius:var(–radius-sm);padding:4px;margin-bottom:28px}
+.auth-tab{flex:1;padding:10px;border:none;background:transparent;color:var(–muted);border-radius:var(–radius-xs);font-weight:500;transition:.2s}
+.auth-tab.active{background:var(–surface2);color:var(–text)}
 .auth-form{display:grid;gap:14px}
 .field{display:grid;gap:6px}
-.field label{font-size:13px;color:var(--muted);font-weight:500}
-.field input{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-xs);padding:12px 14px;outline:none;transition:.2s}
-.field input:focus{border-color:var(--accent);background:var(--surface2)}
-.btn-auth{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;border-radius:var(--radius-xs);padding:13px;font-weight:700;font-size:15px;transition:.2s;margin-top:4px}
+.field label{font-size:13px;color:var(–muted);font-weight:500}
+.field input{background:var(–surface);border:1px solid var(–border);border-radius:var(–radius-xs);padding:12px 14px;outline:none;transition:.2s}
+.field input:focus{border-color:var(–accent);background:var(–surface2)}
+.btn-auth{background:linear-gradient(135deg,var(–accent),var(–accent2));color:#fff;border:none;border-radius:var(–radius-xs);padding:13px;font-weight:700;font-size:15px;transition:.2s;margin-top:4px}
 .btn-auth:hover{opacity:.9;transform:translateY(-1px)}
 .auth-error{color:#ff6b6b;font-size:13px;text-align:center;min-height:18px}
-.guest-btn{text-align:center;margin-top:16px;color:var(--muted);font-size:13px}
-.guest-btn span{color:var(--accent);cursor:pointer;text-decoration:underline}
+.guest-btn{text-align:center;margin-top:16px;color:var(–muted);font-size:13px}
+.guest-btn span{color:var(–accent);cursor:pointer;text-decoration:underline}
 
 /* APP LAYOUT */
 .app{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
 
 /* SIDEBAR */
-.sidebar{background:rgba(5,10,20,.9);border-right:1px solid var(--border);display:flex;flex-direction:column;gap:8px;padding:20px 14px;position:sticky;top:0;height:100vh;overflow-y:auto}
-.sidebar-logo{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;padding:10px 10px 18px}
-.user-card{background:linear-gradient(135deg,rgba(232,54,93,.12),rgba(255,123,84,.08));border:1px solid rgba(232,54,93,.2);border-radius:var(--radius);padding:14px;margin-bottom:6px}
+.sidebar{background:rgba(5,10,20,.9);border-right:1px solid var(–border);display:flex;flex-direction:column;gap:8px;padding:20px 14px;position:sticky;top:0;height:100vh;overflow-y:auto}
+.sidebar-logo{font-family:‘Syne’,sans-serif;font-size:24px;font-weight:800;background:linear-gradient(135deg,var(–accent),var(–accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;padding:10px 10px 18px}
+.user-card{background:linear-gradient(135deg,rgba(232,54,93,.12),rgba(255,123,84,.08));border:1px solid rgba(232,54,93,.2);border-radius:var(–radius);padding:14px;margin-bottom:6px}
 .user-card-top{display:flex;align-items:center;gap:10px;margin-bottom:10px}
-.avatar{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;font-family:'Syne',sans-serif;font-weight:800;font-size:16px;flex-shrink:0}
+.avatar{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(–accent),var(–accent2));display:grid;place-items:center;font-family:‘Syne’,sans-serif;font-weight:800;font-size:16px;flex-shrink:0}
 .user-name{font-weight:600;font-size:15px}
-.user-email{font-size:12px;color:var(--muted)}
+.user-email{font-size:12px;color:var(–muted)}
 .user-stats{display:grid;grid-template-columns:1fr 1fr;gap:6px}
 .ustat{background:rgba(255,255,255,.05);border-radius:10px;padding:8px 10px;text-align:center}
-.ustat strong{display:block;font-size:18px;font-family:'Syne',sans-serif}
-.ustat span{font-size:11px;color:var(--muted)}
+.ustat strong{display:block;font-size:18px;font-family:‘Syne’,sans-serif}
+.ustat span{font-size:11px;color:var(–muted)}
 .nav{display:grid;gap:2px}
-.nav-item{display:flex;align-items:center;gap:10px;padding:11px 12px;border-radius:var(--radius-sm);border:none;background:transparent;color:var(--muted);text-align:left;font-size:14px;font-weight:500;transition:.15s;width:100%}
-.nav-item:hover{background:var(--surface2);color:var(--text)}
-.nav-item.active{background:rgba(232,54,93,.12);color:var(--text);border:1px solid rgba(232,54,93,.2)}
+.nav-item{display:flex;align-items:center;gap:10px;padding:11px 12px;border-radius:var(–radius-sm);border:none;background:transparent;color:var(–muted);text-align:left;font-size:14px;font-weight:500;transition:.15s;width:100%}
+.nav-item:hover{background:var(–surface2);color:var(–text)}
+.nav-item.active{background:rgba(232,54,93,.12);color:var(–text);border:1px solid rgba(232,54,93,.2)}
 .nav-icon{width:20px;text-align:center;font-size:16px}
-.nav-label{}
-.nav-sep{height:1px;background:var(--border);margin:6px 4px}
-.sidebar-tip{margin-top:auto;padding:12px;background:var(--surface);border-radius:var(--radius-sm);font-size:12px;color:var(--muted);line-height:1.5}
+.nav-sep{height:1px;background:var(–border);margin:6px 4px}
+.sidebar-tip{margin-top:auto;padding:12px;background:var(–surface);border-radius:var(–radius-sm);font-size:12px;color:var(–muted);line-height:1.5}
 
 /* MAIN */
 .main{padding:24px;overflow-y:auto}
 .page-header{margin-bottom:24px}
 .page-header h2{font-size:28px;font-weight:800;margin-bottom:4px}
-.page-header p{color:var(--muted);font-size:14px}
+.page-header p{color:var(–muted);font-size:14px}
 
 /* PAGES */
 .page{display:none}
 .page.active{display:block}
 
 /* FILTERS */
-.filters-bar{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:18px}
+.filters-bar{background:var(–bg3);border:1px solid var(–border);border-radius:var(–radius);padding:16px;margin-bottom:18px}
 .filters-row{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end}
 .filter-group{display:flex;flex-direction:column;gap:6px;flex:1;min-width:140px}
-.filter-group label{font-size:12px;color:var(--muted);font-weight:500}
-.ghost{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-xs);padding:9px 12px;color:var(--text);outline:none;width:100%;transition:.2s}
-.ghost:focus{border-color:var(--accent)}
-.ghost option{background:#0a1628;color:var(--text)}
-.multi-select{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-xs);padding:6px;max-height:130px;overflow-y:auto;width:100%}
+.filter-group label{font-size:12px;color:var(–muted);font-weight:500}
+.ghost{background:var(–surface);border:1px solid var(–border);border-radius:var(–radius-xs);padding:9px 12px;color:var(–text);outline:none;width:100%;transition:.2s}
+.ghost:focus{border-color:var(–accent)}
+.ghost option{background:#0a1628;color:var(–text)}
+.multi-select{background:var(–surface);border:1px solid var(–border);border-radius:var(–radius-xs);padding:6px;max-height:130px;overflow-y:auto;width:100%}
 .multi-select-item{display:flex;align-items:center;gap:8px;padding:5px 8px;border-radius:6px;cursor:pointer;font-size:13px;transition:.1s}
-.multi-select-item:hover{background:var(--surface2)}
-.multi-select-item input[type=checkbox]{accent-color:var(--accent);width:14px;height:14px}
-.multi-select-item.checked{color:var(--text)}
-.multi-select-item:not(.checked){color:var(--muted)}
-.type-toggle{display:flex;gap:4px;background:var(--surface);border-radius:var(--radius-xs);padding:4px}
-.type-btn{flex:1;padding:7px 10px;border:none;background:transparent;color:var(--muted);border-radius:6px;font-size:13px;font-weight:500;transition:.15s}
-.type-btn.active{background:var(--accent);color:#fff}
+.multi-select-item:hover{background:var(–surface2)}
+.multi-select-item input[type=checkbox]{accent-color:var(–accent);width:14px;height:14px}
+.multi-select-item.checked{color:var(–text)}
+.multi-select-item:not(.checked){color:var(–muted)}
+.type-toggle{display:flex;gap:4px;background:var(–surface);border-radius:var(–radius-xs);padding:4px}
+.type-btn{flex:1;padding:7px 10px;border:none;background:transparent;color:var(–muted);border-radius:6px;font-size:13px;font-weight:500;transition:.15s}
+.type-btn.active{background:var(–accent);color:#fff}
 .search-input-wrap{position:relative;flex:2;min-width:200px}
 .search-input-wrap input{padding-right:44px}
-.search-input-wrap .search-icon{position:absolute;right:12px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none}
-.btn{border-radius:var(--radius-xs);padding:10px 16px;border:1px solid var(--border);font-weight:500;transition:.15s;font-size:14px}
-.btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none}
+.search-input-wrap .search-icon{position:absolute;right:12px;top:50%;transform:translateY(-50%);color:var(–muted);pointer-events:none}
+.btn{border-radius:var(–radius-xs);padding:10px 16px;border:1px solid var(–border);font-weight:500;transition:.15s;font-size:14px}
+.btn.primary{background:linear-gradient(135deg,var(–accent),var(–accent2));color:#fff;border:none}
 .btn.primary:hover{opacity:.9}
-.btn.soft{background:var(--surface2);color:var(--text)}
+.btn.soft{background:var(–surface2);color:var(–text)}
 .btn.soft:hover{background:rgba(255,255,255,.1)}
 .btn.danger{background:rgba(255,95,95,.08);color:#ffb4b4;border-color:rgba(255,95,95,.3)}
-.btn.accent3{background:rgba(78,205,196,.12);color:var(--accent3);border-color:rgba(78,205,196,.25)}
+.btn.accent3{background:rgba(78,205,196,.12);color:var(–accent3);border-color:rgba(78,205,196,.25)}
 
 /* RESULTS GRID */
 .results-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:12px}
-.movie-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-sm);overflow:hidden;transition:.2s;cursor:pointer}
-.movie-card:hover{transform:translateY(-4px);border-color:var(--border2);box-shadow:0 12px 30px rgba(0,0,0,.4)}
+.movie-card{background:var(–bg3);border:1px solid var(–border);border-radius:var(–radius-sm);overflow:hidden;transition:.2s;cursor:pointer}
+.movie-card:hover{transform:translateY(-4px);border-color:var(–border2);box-shadow:0 12px 30px rgba(0,0,0,.4)}
 .movie-poster{aspect-ratio:2/3;overflow:hidden;position:relative}
 .movie-poster img{width:100%;height:100%;object-fit:cover;transition:.3s}
 .movie-card:hover .movie-poster img{transform:scale(1.05)}
-.no-poster{width:100%;height:100%;background:var(--surface2);display:grid;place-items:center;font-size:24px;color:var(--subtle)}
+.no-poster{width:100%;height:100%;background:var(–surface2);display:grid;place-items:center;font-size:24px;color:var(–subtle)}
 .movie-info{padding:8px}
 .movie-title{font-size:11px;font-weight:600;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;margin-bottom:5px;min-height:28px}
-.movie-meta{display:flex;justify-content:space-between;font-size:10px;color:var(--muted)}
-.score{color:var(--gold);font-weight:700}
+.movie-meta{display:flex;justify-content:space-between;font-size:10px;color:var(–muted)}
+.score{color:var(–gold);font-weight:700}
 .movie-actions{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:0 8px 8px}
-.movie-actions button{border:1px solid var(--border);background:var(--surface);border-radius:7px;padding:5px 3px;font-size:10px;transition:.15s}
-.movie-actions button:hover{background:var(--surface2)}
+.movie-actions button{border:1px solid var(–border);background:var(–surface);border-radius:7px;padding:5px 3px;font-size:10px;transition:.15s}
+.movie-actions button:hover{background:var(–surface2)}
 .movie-actions button.added{background:rgba(232,54,93,.1);border-color:rgba(232,54,93,.3);color:#ff8fa8}
 .type-badge{position:absolute;top:6px;left:6px;background:rgba(78,205,196,.85);color:#000;font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px}
 
 /* PAGER */
 .pager{display:flex;justify-content:center;gap:6px;margin-top:18px;flex-wrap:wrap}
-.pager button{padding:7px 12px;border-radius:8px;border:1px solid var(--border);background:var(--surface);font-size:13px}
+.pager button{padding:7px 12px;border-radius:8px;border:1px solid var(–border);background:var(–surface);font-size:13px}
 .pager button:disabled{opacity:.3}
-.pager button:not(:disabled):hover{background:var(--surface2)}
-.pager .cur{background:rgba(232,54,93,.15);border-color:rgba(232,54,93,.35);color:var(--accent)}
+.pager button:not(:disabled):hover{background:var(–surface2)}
+.pager .cur{background:rgba(232,54,93,.15);border-color:rgba(232,54,93,.35);color:var(–accent)}
 
 /* LOADING / EMPTY */
-.loading,.empty{text-align:center;color:var(--muted);padding:48px 20px}
-.spinner{width:28px;height:28px;border:3px solid rgba(255,255,255,.1);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite;margin:0 auto 14px}
+.loading,.empty{text-align:center;color:var(–muted);padding:48px 20px}
+.spinner{width:28px;height:28px;border:3px solid rgba(255,255,255,.1);border-top-color:var(–accent);border-radius:50%;animation:spin .7s linear infinite;margin:0 auto 14px}
 @keyframes spin{to{transform:rotate(360deg)}}
 
 /* MOVIE DETAIL MODAL */
 .detail-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.85);display:flex;align-items:center;justify-content:center;padding:20px;z-index:200;opacity:0;pointer-events:none;transition:.25s}
 .detail-backdrop.open{opacity:1;pointer-events:auto}
-.detail-modal{width:min(900px,100%);max-height:90vh;overflow-y:auto;background:#08131f;border:1px solid var(--border2);border-radius:24px}
+.detail-modal{width:min(900px,100%);max-height:90vh;overflow-y:auto;background:#08131f;border:1px solid var(–border2);border-radius:24px}
 .detail-hero{position:relative;overflow:hidden;border-radius:24px 24px 0 0}
 .detail-backdrop-img{width:100%;height:280px;object-fit:cover;opacity:.35;filter:blur(2px)}
 .detail-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 30%,#08131f 100%)}
 .detail-hero-content{position:absolute;bottom:0;left:0;right:0;padding:24px;display:flex;gap:20px;align-items:flex-end}
-.detail-poster{width:110px;height:165px;border-radius:14px;object-fit:cover;flex-shrink:0;border:2px solid var(--border2)}
+.detail-poster{width:110px;height:165px;border-radius:14px;object-fit:cover;flex-shrink:0;border:2px solid var(–border2)}
 .detail-hero-text h2{font-size:26px;font-weight:800;margin-bottom:6px}
 .detail-hero-meta{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
-.badge{padding:4px 10px;border-radius:20px;font-size:12px;font-weight:600;background:var(--surface2);color:var(--muted)}
-.badge.genre{background:rgba(78,205,196,.1);color:var(--accent3)}
-.badge.score{background:rgba(255,215,0,.1);color:var(--gold)}
-.badge.age{background:rgba(232,54,93,.1);color:var(--accent)}
+.badge{padding:4px 10px;border-radius:20px;font-size:12px;font-weight:600;background:var(–surface2);color:var(–muted)}
+.badge.genre{background:rgba(78,205,196,.1);color:var(–accent3)}
+.badge.score{background:rgba(255,215,0,.1);color:var(–gold)}
+.badge.age{background:rgba(232,54,93,.1);color:var(–accent)}
 .detail-body{padding:24px}
 .detail-overview{line-height:1.7;color:#c8d8f0;margin-bottom:20px;font-size:15px}
 .detail-section{margin-bottom:24px}
-.detail-section h4{font-size:14px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:12px}
+.detail-section h4{font-size:14px;font-weight:700;color:var(–muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:12px}
 .cast-list{display:flex;gap:12px;overflow-x:auto;padding-bottom:8px}
 .cast-item{text-align:center;flex-shrink:0;width:80px}
-.cast-photo{width:64px;height:64px;border-radius:50%;object-fit:cover;margin:0 auto 6px;background:var(--surface2);display:block}
+.cast-photo{width:64px;height:64px;border-radius:50%;object-fit:cover;margin:0 auto 6px;background:var(–surface2);display:block}
 .cast-name{font-size:11px;font-weight:600;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.cast-char{font-size:10px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cast-char{font-size:10px;color:var(–muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .trailer-wrap{border-radius:14px;overflow:hidden;aspect-ratio:16/9;background:#000}
 .trailer-wrap iframe{width:100%;height:100%;border:none}
-.no-trailer{display:grid;place-items:center;background:var(--surface);border-radius:14px;aspect-ratio:16/9;color:var(--muted);font-size:14px}
+.no-trailer{display:grid;place-items:center;background:var(–surface);border-radius:14px;aspect-ratio:16/9;color:var(–muted);font-size:14px}
 .streaming-list{display:flex;gap:8px;flex-wrap:wrap}
-.streaming-badge{display:flex;align-items:center;gap:6px;padding:6px 12px;background:var(--surface2);border-radius:99px;font-size:13px;font-weight:500;border:1px solid var(--border2)}
+.streaming-badge{display:flex;align-items:center;gap:6px;padding:6px 12px;background:var(–surface2);border-radius:99px;font-size:13px;font-weight:500;border:1px solid var(–border2)}
 .streaming-logo{width:20px;height:20px;border-radius:4px;object-fit:cover}
 .detail-actions{display:flex;gap:10px;flex-wrap:wrap;padding:0 24px 24px}
 .detail-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;border:none;background:rgba(0,0,0,.5);color:#fff;font-size:18px;display:grid;place-items:center;z-index:1}
@@ -174,12 +178,12 @@ img{display:block}
 /* RATING MODAL */
 .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.8);display:flex;align-items:center;justify-content:center;padding:20px;z-index:300;opacity:0;pointer-events:none;transition:.2s}
 .modal-backdrop.open{opacity:1;pointer-events:auto}
-.modal{width:min(400px,100%);background:#0b1730;border:1px solid var(--border2);border-radius:24px;padding:28px}
+.modal{width:min(400px,100%);background:#0b1730;border:1px solid var(–border2);border-radius:24px;padding:28px}
 .modal h3{font-size:22px;margin-bottom:6px}
-.modal p{color:var(--muted);margin-bottom:16px;font-size:14px}
+.modal p{color:var(–muted);margin-bottom:16px;font-size:14px}
 .stars{display:flex;gap:5px;justify-content:center;margin:16px 0;flex-wrap:wrap}
-.stars span{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:var(--surface);cursor:pointer;transition:.1s;font-size:18px}
-.stars span.active{background:rgba(255,215,0,.12);color:var(--gold)}
+.stars span{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:var(–surface);cursor:pointer;transition:.1s;font-size:18px}
+.stars span.active{background:rgba(255,215,0,.12);color:var(–gold)}
 .modal-actions{display:flex;gap:10px;justify-content:center;margin-top:16px}
 
 /* RANDOM PAGE */
@@ -187,122 +191,105 @@ img{display:block}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 .random-poster{width:100%;aspect-ratio:2/3;border-radius:18px;object-fit:cover}
 .random-tags{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
-.tag{padding:6px 12px;border-radius:999px;background:var(--surface2);font-size:12px;color:var(--muted);border:1px solid var(--border)}
+.tag{padding:6px 12px;border-radius:999px;background:var(–surface2);font-size:12px;color:var(–muted);border:1px solid var(–border)}
 .random-title{font-size:28px;font-weight:800;margin-bottom:8px}
 .random-overview{color:#b8cce0;line-height:1.7;margin:14px 0}
 .random-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
 
 /* UPCOMING */
 .upcoming-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
-.ustat-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:18px;text-align:center}
-.ustat-card strong{display:block;font-size:28px;font-family:'Syne',sans-serif;margin-bottom:4px}
-.ustat-card span{font-size:13px;color:var(--muted)}
+.ustat-card{background:var(–bg3);border:1px solid var(–border);border-radius:var(–radius);padding:18px;text-align:center}
+.ustat-card strong{display:block;font-size:28px;font-family:‘Syne’,sans-serif;margin-bottom:4px}
+.ustat-card span{font-size:13px;color:var(–muted)}
 
 /* FAV / WATCHED */
 .section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
-.count-badge{background:var(--surface2);padding:4px 12px;border-radius:99px;font-size:13px;color:var(--muted)}
+.count-badge{background:var(–surface2);padding:4px 12px;border-radius:99px;font-size:13px;color:var(–muted)}
 
 /* ACCOUNT */
 .account-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.account-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.account-card{background:var(–bg3);border:1px solid var(–border);border-radius:var(–radius);padding:22px}
 .account-card h4{font-size:16px;font-weight:700;margin-bottom:4px}
-.account-card p{color:var(--muted);font-size:13px;margin-bottom:16px}
+.account-card p{color:var(–muted);font-size:13px;margin-bottom:16px}
 .stack{display:grid;gap:10px}
-.info-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)}
+.info-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(–border)}
 .info-row:last-child{border:none}
-.info-row span{color:var(--muted);font-size:13px}
+.info-row span{color:var(–muted);font-size:13px}
 .info-row strong{font-size:14px}
-.logout-btn{margin-top:16px;width:100%;padding:11px;border-radius:var(--radius-xs);border:1px solid rgba(255,95,95,.3);background:rgba(255,95,95,.06);color:#ff8fa8;font-weight:500}
+.logout-btn{margin-top:16px;width:100%;padding:11px;border-radius:var(–radius-xs);border:1px solid rgba(255,95,95,.3);background:rgba(255,95,95,.06);color:#ff8fa8;font-weight:500}
 
 /* SETTINGS */
 .settings-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.setting-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+.setting-card{background:var(–bg3);border:1px solid var(–border);border-radius:var(–radius);padding:20px}
 .setting-card h4{font-size:15px;margin-bottom:4px}
-.setting-card p{color:var(--muted);font-size:13px;margin-bottom:14px}
+.setting-card p{color:var(–muted);font-size:13px;margin-bottom:14px}
 
 /* FIND FILM WITH AI */
-.find-box{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px}
+.find-box{background:var(–bg3);border:1px solid var(–border);border-radius:var(–radius);padding:24px;margin-bottom:20px}
 .find-box h3{font-size:20px;margin-bottom:6px}
-.find-box p{color:var(--muted);font-size:14px;margin-bottom:16px}
-.find-textarea{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px;color:var(--text);resize:vertical;min-height:100px;outline:none;line-height:1.6;transition:.2s}
-.find-textarea:focus{border-color:var(--accent)}
-.ai-result{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin-top:16px}
-.ai-result h4{font-size:16px;margin-bottom:10px;color:var(--accent)}
-.ai-suggestion{background:var(--surface);border-radius:var(--radius-sm);padding:14px;margin-bottom:10px;display:flex;gap:14px;align-items:center;cursor:pointer;transition:.15s;border:1px solid transparent}
-.ai-suggestion:hover{border-color:var(--accent);background:var(--surface2)}
+.find-box p{color:var(–muted);font-size:14px;margin-bottom:16px}
+.find-textarea{width:100%;background:var(–surface);border:1px solid var(–border);border-radius:var(–radius-sm);padding:14px;color:var(–text);resize:vertical;min-height:100px;outline:none;line-height:1.6;transition:.2s}
+.find-textarea:focus{border-color:var(–accent)}
+.ai-result{background:var(–bg3);border:1px solid var(–border);border-radius:var(–radius);padding:22px;margin-top:16px}
+.ai-result h4{font-size:16px;margin-bottom:10px;color:var(–accent)}
+.ai-suggestion{background:var(–surface);border-radius:var(–radius-sm);padding:14px;margin-bottom:10px;display:flex;gap:14px;align-items:center;cursor:pointer;transition:.15s;border:1px solid transparent}
+.ai-suggestion:hover{border-color:var(–accent);background:var(–surface2)}
 .ai-suggestion img,.ai-suggestion .no-poster-sm{width:50px;height:75px;border-radius:10px;object-fit:cover;flex-shrink:0}
-.no-poster-sm{background:var(--surface2);display:grid;place-items:center;font-size:20px}
+.no-poster-sm{background:var(–surface2);display:grid;place-items:center;font-size:20px}
 .ai-suggestion-info h5{font-size:14px;margin-bottom:4px}
-.ai-suggestion-info p{font-size:12px;color:var(--muted);line-height:1.5}
+.ai-suggestion-info p{font-size:12px;color:var(–muted);line-height:1.5}
 
 /* GAMES PAGE */
 .games-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-bottom:24px}
-.game-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:22px;text-align:center;transition:.2s;cursor:pointer}
-.game-card:hover{border-color:var(--border2);transform:translateY(-3px)}
+.game-card{background:var(–bg3);border:1px solid var(–border);border-radius:var(–radius);padding:22px;text-align:center;transition:.2s;cursor:pointer}
+.game-card:hover{border-color:var(–border2);transform:translateY(-3px)}
 .game-icon{font-size:48px;margin-bottom:14px}
 .game-card h4{font-size:18px;font-weight:700;margin-bottom:6px}
-.game-card p{color:var(--muted);font-size:13px;margin-bottom:16px}
+.game-card p{color:var(–muted);font-size:13px;margin-bottom:16px}
 .game-card .btn{width:100%}
+
 /* EMOJI GAME */
-.emoji-game{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:28px}
+.emoji-game{background:var(–bg3);border:1px solid var(–border);border-radius:var(–radius);padding:28px}
 .emoji-display{font-size:52px;letter-spacing:8px;text-align:center;margin:20px 0;line-height:1.4}
 .emoji-score{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
-.score-pill{background:var(--surface2);border-radius:99px;padding:6px 16px;font-size:14px;font-weight:600}
-.score-pill span{color:var(--accent)}
+.score-pill{background:var(–surface2);border-radius:99px;padding:6px 16px;font-size:14px;font-weight:600}
+.score-pill span{color:var(–accent)}
 .emoji-input-wrap{display:flex;gap:10px;margin-bottom:14px}
-.emoji-input{flex:1;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-xs);padding:12px;outline:none;font-size:15px;transition:.2s}
-.emoji-input:focus{border-color:var(--accent)}
-.hint-area{color:var(--muted);font-size:13px;min-height:20px;text-align:center;margin-top:8px}
-.answer-reveal{background:var(--surface);border-radius:var(--radius-xs);padding:14px;text-align:center;margin-top:12px;border:1px solid var(--border)}
-.answer-correct{border-color:rgba(78,205,196,.4);background:rgba(78,205,196,.07);color:var(--accent3)}
-.answer-wrong{border-color:rgba(232,54,93,.3);background:rgba(232,54,93,.06);color:var(--accent)}
+.emoji-input{flex:1;background:var(–surface);border:1px solid var(–border);border-radius:var(–radius-xs);padding:12px;outline:none;font-size:15px;transition:.2s}
+.emoji-input:focus{border-color:var(–accent)}
+.hint-area{color:var(–muted);font-size:13px;min-height:20px;text-align:center;margin-top:8px}
+.answer-reveal{background:var(–surface);border-radius:var(–radius-xs);padding:14px;text-align:center;margin-top:12px;border:1px solid var(–border)}
+.answer-correct{border-color:rgba(78,205,196,.4);background:rgba(78,205,196,.07);color:var(–accent3)}
+.answer-wrong{border-color:rgba(232,54,93,.3);background:rgba(232,54,93,.06);color:var(–accent)}
 .lives{display:flex;gap:4px}
 .life{font-size:20px;transition:.2s}
 .life.lost{filter:grayscale(1);opacity:.3}
 .game-result{text-align:center;padding:28px;animation:fadeUp .4s ease}
-.game-result-score{font-size:64px;font-family:'Syne',sans-serif;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.game-result-score{font-size:64px;font-family:‘Syne’,sans-serif;font-weight:800;background:linear-gradient(135deg,var(–accent),var(–accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 
 /* TOAST */
-.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(80px);background:rgba(10,20,38,.97);border:1px solid var(--border2);padding:12px 20px;border-radius:var(--radius-xs);transition:.2s;z-index:999;font-size:14px;white-space:nowrap}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(80px);background:rgba(10,20,38,.97);border:1px solid var(–border2);padding:12px 20px;border-radius:var(–radius-xs);transition:.2s;z-index:999;font-size:14px;white-space:nowrap}
 .toast.show{transform:translateX(-50%) translateY(0)}
 
 /* RESPONSIVE */
 @media(max-width:1100px){.app{grid-template-columns:1fr}.sidebar{position:fixed;left:-270px;top:0;height:100vh;z-index:100;transition:.25s;width:260px}.sidebar.open{left:0}.mobile-header{display:flex}.account-grid,.settings-grid{grid-template-columns:1fr}}
 @media(min-width:1101px){.mobile-header{display:none}}
-.mobile-header{position:fixed;top:0;left:0;right:0;background:rgba(5,10,20,.95);border-bottom:1px solid var(--border);padding:12px 16px;display:flex;justify-content:space-between;align-items:center;z-index:90;backdrop-filter:blur(10px)}
-.menu-btn{background:none;border:none;color:var(--text);font-size:22px}
-.mobile-logo{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.mobile-header{position:fixed;top:0;left:0;right:0;background:rgba(5,10,20,.95);border-bottom:1px solid var(–border);padding:12px 16px;display:flex;justify-content:space-between;align-items:center;z-index:90;backdrop-filter:blur(10px)}
+.menu-btn{background:none;border:none;color:var(–text);font-size:22px}
+.mobile-logo{font-family:‘Syne’,sans-serif;font-size:20px;font-weight:800;background:linear-gradient(135deg,var(–accent),var(–accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:99}
 .overlay.show{display:block}
 @media(max-width:1100px){.main{padding-top:70px}}
 @media(max-width:700px){.random-card{grid-template-columns:1fr}.results-grid{grid-template-columns:repeat(3,1fr)}.account-grid,.settings-grid,.upcoming-stats{grid-template-columns:1fr}.detail-hero-content{flex-direction:column;align-items:flex-start}.detail-poster{width:80px;height:120px}}
 @media(max-width:430px){.results-grid{grid-template-columns:repeat(2,1fr)}}
 </style>
+
 </head>
 <body>
 
-<!-- AUTH -->
-<<!-- PUB HAUT -->
-<div class="ad-container" style="margin:20px 0;text-align:center;">
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-6522700032472025"
-       data-ad-slot="1234567890"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-</div>
+<!-- AUTH SCREEN -->
 
-<div id="homeResults"></div>
-
-<!-- PUB BAS -->
-<div class="ad-container" style="margin:20px 0;text-align:center;">
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-6522700032472025"
-       data-ad-slot="1234567890"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-</div>>
+<div id="authScreen">
   <div class="auth-box">
     <div class="auth-logo">🎬 CineVerse</div>
     <div class="auth-sub">Ta plateforme cinéma personnalisée</div>
@@ -328,6 +315,7 @@ img{display:block}
 </div>
 
 <!-- MOBILE HEADER -->
+
 <div class="mobile-header">
   <button class="menu-btn" onclick="toggleSidebar()">☰</button>
   <div class="mobile-logo">🎬 CineVerse</div>
@@ -336,6 +324,7 @@ img{display:block}
 <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
 
 <!-- APP -->
+
 <div class="app" id="appLayout" style="display:none">
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-logo">🎬 CineVerse</div>
@@ -370,200 +359,245 @@ img{display:block}
   </aside>
 
   <main class="main">
-    <!-- HOME -->
-    <section class="page active" id="homePage">
-      <div class="page-header"><h2>Explorer le catalogue</h2><p>Films et séries – combine genres, plateformes et mots-clés</p></div>
-      <div class="filters-bar">
-        <div class="filters-row" style="margin-bottom:12px">
-          <div class="filter-group" style="flex:2;min-width:200px">
-            <label>Recherche</label>
-            <div class="search-input-wrap" style="width:100%">
-              <input class="ghost" id="searchInput" placeholder="Titre, acteur...">
-              <span class="search-icon">🔍</span>
-            </div>
-          </div>
-          <div class="filter-group">
-            <label>Type</label>
-            <div class="type-toggle">
-              <button class="type-btn active" data-type="movie" onclick="setType('movie',this)">🎬 Films</button>
-              <button class="type-btn" data-type="tv" onclick="setType('tv',this)">📺 Séries</button>
-            </div>
-          </div>
-          <div class="filter-group">
-            <label>Tri</label>
-            <select class="ghost" id="sortSelect">
-              <option value="popularity.desc">Popularité</option>
-              <option value="vote_average.desc">Note</option>
-              <option value="release_date.desc">Plus récent</option>
-            </select>
-          </div>
-          <button class="btn primary" onclick="doSearch(1)" style="align-self:flex-end;white-space:nowrap">Rechercher</button>
-        </div>
-        <div class="filters-row">
-          <div class="filter-group">
-            <label>Genres (multi)</label>
-            <div class="multi-select" id="genreMulti"></div>
-          </div>
-          <div class="filter-group">
-            <label>Plateformes (multi)</label>
-            <div class="multi-select" id="platformMulti"></div>
-          </div>
-          <div class="filter-group">
-            <label>Âge</label>
-            <select class="ghost" id="ageSelect">
-              <option value="">Tout public</option>
-              <option value="0">Tous âges</option>
-              <option value="6">6+</option>
-              <option value="12">12+</option>
-              <option value="16">16+</option>
-              <option value="18">18+</option>
-            </select>
-          </div>
+
+```
+<!-- HOME -->
+<section class="page active" id="homePage">
+  <div class="page-header"><h2>Explorer le catalogue</h2><p>Films et séries – combine genres, plateformes et mots-clés</p></div>
+  <!-- Pub haut page Accueil -->
+  <div class="ad-container">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6522700032472025" data-ad-slot="1111111111" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div>
+  <div class="filters-bar">
+    <div class="filters-row" style="margin-bottom:12px">
+      <div class="filter-group" style="flex:2;min-width:200px">
+        <label>Recherche</label>
+        <div class="search-input-wrap" style="width:100%">
+          <input class="ghost" id="searchInput" placeholder="Titre, acteur...">
+          <span class="search-icon">🔍</span>
         </div>
       </div>
-      <div id="homeResults"></div>
-      <div class="pager" id="homePager"></div>
-    </section>
-
-    <!-- RANDOM -->
-    <section class="page" id="randomPage">
-      <div class="page-header"><h2>Film / Série aléatoire</h2><p>Génère au hasard dans le catalogue</p></div>
-      <div style="display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap">
+      <div class="filter-group">
+        <label>Type</label>
         <div class="type-toggle">
-          <button class="type-btn active" data-type="movie" onclick="setRandomType('movie',this)">🎬 Film</button>
-          <button class="type-btn" data-type="tv" onclick="setRandomType('tv',this)">📺 Série</button>
-        </div>
-        <button class="btn primary" onclick="doRandom()">🎲 Générer</button>
-      </div>
-      <div id="randomResult"></div>
-    </section>
-
-    <!-- FIND WITH AI -->
-    <section class="page" id="findPage">
-      <div class="page-header"><h2>🤖 Trouver un film/série</h2><p>Décris ce que tu cherches, l'IA trouve pour toi</p></div>
-      <div class="find-box">
-        <h3>Décris ce que tu veux voir</h3>
-        <p>Exemples : "Un film de science-fiction avec des voyages dans le temps", "Une comédie romantique légère des années 90", "Une série policière sombre comme Mindhunter"</p>
-        <div style="display:flex;gap:10px;margin-bottom:12px;flex-wrap:wrap">
-          <div class="type-toggle">
-            <button class="type-btn active" data-type="movie" onclick="setFindType('movie',this)">🎬 Films</button>
-            <button class="type-btn" data-type="tv" onclick="setFindType('tv',this)">📺 Séries</button>
-          </div>
-        </div>
-        <textarea class="find-textarea" id="findInput" placeholder="Décris le type de film ou série que tu aimerais regarder..."></textarea>
-        <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-          <button class="btn primary" onclick="doFindWithAI()">🔍 Trouver avec l'IA</button>
-          <button class="btn soft" onclick="fillFindExample()">✨ Exemple aléatoire</button>
-        </div>
-        <div id="findResult"></div>
-      </div>
-    </section>
-
-    <!-- UPCOMING -->
-    <section class="page" id="upcomingPage">
-      <div class="page-header"><h2>📅 Prochainement</h2><p>Films à venir au cinéma</p></div>
-      <div class="upcoming-stats">
-        <div class="ustat-card"><strong id="upcomingCount">-</strong><span>films chargés</span></div>
-        <div class="ustat-card"><strong>30</strong><span>jours à venir</span></div>
-      </div>
-      <div style="display:flex;gap:10px;margin-bottom:16px">
-        <button class="btn soft" onclick="loadUpcoming()">🔄 Actualiser</button>
-      </div>
-      <div id="upcomingResults"></div>
-    </section>
-
-    <!-- FAVORITES -->
-    <section class="page" id="favoritesPage">
-      <div class="section-header"><div><h2>❤️ Mes favoris</h2></div><span class="count-badge" id="favCount">0 film</span></div>
-      <div id="favResults"></div>
-    </section>
-
-    <!-- WATCHED -->
-    <section class="page" id="watchedPage">
-      <div class="section-header"><div><h2>👁️ Déjà vus</h2></div><span class="count-badge" id="watchedCount">0 film</span></div>
-      <div id="watchedResults"></div>
-    </section>
-
-    <!-- GAMES -->
-    <section class="page" id="gamesPage">
-      <div class="page-header"><h2>🎮 Mini-jeux cinéma</h2><p>Teste ta culture cinématographique</p></div>
-      <div id="gamesMenu">
-        <div class="games-grid">
-          <div class="game-card">
-            <div class="game-icon">🎬</div>
-            <h4>Devine le film</h4>
-            <p>Des emojis cachent le titre d'un film culte. Sauras-tu le retrouver ?</p>
-            <button class="btn primary" onclick="startEmojiGame('movie')">Jouer avec des films</button>
-          </div>
-          <div class="game-card">
-            <div class="game-icon">📺</div>
-            <h4>Devine la série</h4>
-            <p>Même principe mais avec des séries cultes. Plus difficile !</p>
-            <button class="btn accent3" onclick="startEmojiGame('tv')">Jouer avec des séries</button>
-          </div>
+          <button class="type-btn active" data-type="movie" onclick="setType('movie',this)">🎬 Films</button>
+          <button class="type-btn" data-type="tv" onclick="setType('tv',this)">📺 Séries</button>
         </div>
       </div>
-      <div id="emojiGameArea" style="display:none"></div>
-    </section>
-
-    <!-- ACCOUNT -->
-    <section class="page" id="accountPage">
-      <div class="page-header"><h2>👤 Mon compte</h2></div>
-      <div class="account-grid">
-        <div class="account-card">
-          <h4>Profil</h4>
-          <p>Modifie tes informations</p>
-          <div class="stack">
-            <input class="ghost" id="accName" placeholder="Nom d'utilisateur">
-            <input class="ghost" id="accEmail" placeholder="Email" type="email">
-            <button class="btn primary" onclick="saveAccount()">💾 Enregistrer</button>
-          </div>
-        </div>
-        <div class="account-card">
-          <h4>Statistiques</h4>
-          <p>Ton activité sur CineVerse</p>
-          <div class="info-row"><span>Favoris</span><strong id="accFavCount">0</strong></div>
-          <div class="info-row"><span>Films/séries vus</span><strong id="accWatchCount">0</strong></div>
-          <div class="info-row"><span>Membre depuis</span><strong id="accSince">-</strong></div>
-          <div class="info-row"><span>Langue</span><strong>Français 🇫🇷</strong></div>
-          <button class="logout-btn" onclick="doLogout()">🚪 Se déconnecter</button>
-        </div>
+      <div class="filter-group">
+        <label>Tri</label>
+        <select class="ghost" id="sortSelect">
+          <option value="popularity.desc">Popularité</option>
+          <option value="vote_average.desc">Note</option>
+          <option value="release_date.desc">Plus récent</option>
+        </select>
       </div>
-    </section>
-
-    <!-- SETTINGS -->
-    <section class="page" id="settingsPage">
-      <div class="page-header"><h2>⚙️ Réglages</h2></div>
-      <div class="settings-grid">
-        <div class="setting-card">
-          <h4>Données favoris</h4>
-          <p>Supprimer tous tes favoris sauvegardés</p>
-          <button class="btn danger" onclick="clearFavorites()">🗑️ Vider les favoris</button>
-        </div>
-        <div class="setting-card">
-          <h4>Historique vu</h4>
-          <p>Supprimer tous les films marqués comme vus</p>
-          <button class="btn danger" onclick="clearWatched()">🗑️ Vider l'historique</button>
-        </div>
-        <div class="setting-card">
-          <h4>Réinitialiser le profil</h4>
-          <p>Efface le profil local uniquement</p>
-          <button class="btn danger" onclick="resetProfile()">♻️ Réinitialiser</button>
-        </div>
-        <div class="setting-card">
-          <h4>Langue de l'API</h4>
-          <p>Langue utilisée pour les titres et descriptions</p>
-          <select class="ghost" id="apiLangSelect" onchange="saveApiLang()">
-            <option value="fr-FR">Français</option>
-            <option value="en-US">English</option>
-          </select>
-        </div>
+      <button class="btn primary" onclick="doSearch(1)" style="align-self:flex-end;white-space:nowrap">Rechercher</button>
+    </div>
+    <div class="filters-row">
+      <div class="filter-group">
+        <label>Genres (multi)</label>
+        <div class="multi-select" id="genreMulti"></div>
       </div>
-    </section>
+      <div class="filter-group">
+        <label>Plateformes (multi)</label>
+        <div class="multi-select" id="platformMulti"></div>
+      </div>
+      <div class="filter-group">
+        <label>Âge</label>
+        <select class="ghost" id="ageSelect">
+          <option value="">Tout public</option>
+          <option value="0">Tous âges</option>
+          <option value="6">6+</option>
+          <option value="12">12+</option>
+          <option value="16">16+</option>
+          <option value="18">18+</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div id="homeResults"></div>
+  <div class="pager" id="homePager"></div>
+  <!-- Pub bas page Accueil -->
+  <div class="ad-container" style="margin-top:24px">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6522700032472025" data-ad-slot="2222222222" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div>
+</section>
+
+<!-- RANDOM -->
+<section class="page" id="randomPage">
+  <div class="page-header"><h2>Film / Série aléatoire</h2><p>Génère au hasard dans le catalogue</p></div>
+  <!-- Pub page Aléatoire -->
+  <div class="ad-container">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6522700032472025" data-ad-slot="3333333333" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div>
+  <div style="display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap">
+    <div class="type-toggle">
+      <button class="type-btn active" data-type="movie" onclick="setRandomType('movie',this)">🎬 Film</button>
+      <button class="type-btn" data-type="tv" onclick="setRandomType('tv',this)">📺 Série</button>
+    </div>
+    <button class="btn primary" onclick="doRandom()">🎲 Générer</button>
+  </div>
+  <div id="randomResult"></div>
+</section>
+
+<!-- FIND WITH AI -->
+<section class="page" id="findPage">
+  <div class="page-header"><h2>🤖 Trouver un film/série</h2><p>Décris ce que tu cherches, l'IA trouve pour toi</p></div>
+  <!-- Pub page Trouver -->
+  <div class="ad-container">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6522700032472025" data-ad-slot="4444444444" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div>
+  <div class="find-box">
+    <h3>Décris ce que tu veux voir</h3>
+    <p>Exemples : "Un film de science-fiction avec des voyages dans le temps", "Une comédie romantique légère des années 90", "Une série policière sombre comme Mindhunter"</p>
+    <div style="display:flex;gap:10px;margin-bottom:12px;flex-wrap:wrap">
+      <div class="type-toggle">
+        <button class="type-btn active" data-type="movie" onclick="setFindType('movie',this)">🎬 Films</button>
+        <button class="type-btn" data-type="tv" onclick="setFindType('tv',this)">📺 Séries</button>
+      </div>
+    </div>
+    <textarea class="find-textarea" id="findInput" placeholder="Décris le type de film ou série que tu aimerais regarder..."></textarea>
+    <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+      <button class="btn primary" onclick="doFindWithAI()">🔍 Trouver avec l'IA</button>
+      <button class="btn soft" onclick="fillFindExample()">✨ Exemple aléatoire</button>
+    </div>
+    <div id="findResult"></div>
+  </div>
+</section>
+
+<!-- UPCOMING -->
+<section class="page" id="upcomingPage">
+  <div class="page-header"><h2>📅 Prochainement</h2><p>Films à venir au cinéma</p></div>
+  <!-- Pub page Prochainement -->
+  <div class="ad-container">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6522700032472025" data-ad-slot="5555555555" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div>
+  <div class="upcoming-stats">
+    <div class="ustat-card"><strong id="upcomingCount">-</strong><span>films chargés</span></div>
+    <div class="ustat-card"><strong>30</strong><span>jours à venir</span></div>
+  </div>
+  <div style="display:flex;gap:10px;margin-bottom:16px">
+    <button class="btn soft" onclick="loadUpcoming()">🔄 Actualiser</button>
+  </div>
+  <div id="upcomingResults"></div>
+</section>
+
+<!-- FAVORITES -->
+<section class="page" id="favoritesPage">
+  <div class="section-header"><div><h2>❤️ Mes favoris</h2></div><span class="count-badge" id="favCount">0 film</span></div>
+  <!-- Pub page Favoris -->
+  <div class="ad-container">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6522700032472025" data-ad-slot="6666666666" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div>
+  <div id="favResults"></div>
+</section>
+
+<!-- WATCHED -->
+<section class="page" id="watchedPage">
+  <div class="section-header"><div><h2>👁️ Déjà vus</h2></div><span class="count-badge" id="watchedCount">0 film</span></div>
+  <!-- Pub page Déjà vus -->
+  <div class="ad-container">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6522700032472025" data-ad-slot="7777777777" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div>
+  <div id="watchedResults"></div>
+</section>
+
+<!-- GAMES -->
+<section class="page" id="gamesPage">
+  <div class="page-header"><h2>🎮 Mini-jeux cinéma</h2><p>Teste ta culture cinématographique</p></div>
+  <!-- Pub page Jeux -->
+  <div class="ad-container">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6522700032472025" data-ad-slot="8888888888" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div>
+  <div id="gamesMenu">
+    <div class="games-grid">
+      <div class="game-card">
+        <div class="game-icon">🎬</div>
+        <h4>Devine le film</h4>
+        <p>Des emojis cachent le titre d'un film culte. Sauras-tu le retrouver ?</p>
+        <button class="btn primary" onclick="startEmojiGame('movie')">Jouer avec des films</button>
+      </div>
+      <div class="game-card">
+        <div class="game-icon">📺</div>
+        <h4>Devine la série</h4>
+        <p>Même principe mais avec des séries cultes. Plus difficile !</p>
+        <button class="btn accent3" onclick="startEmojiGame('tv')">Jouer avec des séries</button>
+      </div>
+    </div>
+  </div>
+  <div id="emojiGameArea" style="display:none"></div>
+</section>
+
+<!-- ACCOUNT -->
+<section class="page" id="accountPage">
+  <div class="page-header"><h2>👤 Mon compte</h2></div>
+  <!-- Pub page Compte -->
+  <div class="ad-container">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6522700032472025" data-ad-slot="9999999999" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div>
+  <div class="account-grid">
+    <div class="account-card">
+      <h4>Profil</h4>
+      <p>Modifie tes informations</p>
+      <div class="stack">
+        <input class="ghost" id="accName" placeholder="Nom d'utilisateur">
+        <input class="ghost" id="accEmail" placeholder="Email" type="email">
+        <button class="btn primary" onclick="saveAccount()">💾 Enregistrer</button>
+      </div>
+    </div>
+    <div class="account-card">
+      <h4>Statistiques</h4>
+      <p>Ton activité sur CineVerse</p>
+      <div class="info-row"><span>Favoris</span><strong id="accFavCount">0</strong></div>
+      <div class="info-row"><span>Films/séries vus</span><strong id="accWatchCount">0</strong></div>
+      <div class="info-row"><span>Membre depuis</span><strong id="accSince">-</strong></div>
+      <div class="info-row"><span>Langue</span><strong>Français 🇫🇷</strong></div>
+      <button class="logout-btn" onclick="doLogout()">🚪 Se déconnecter</button>
+    </div>
+  </div>
+</section>
+
+<!-- SETTINGS -->
+<section class="page" id="settingsPage">
+  <div class="page-header"><h2>⚙️ Réglages</h2></div>
+  <!-- Pub page Réglages -->
+  <div class="ad-container">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6522700032472025" data-ad-slot="1010101010" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div>
+  <div class="settings-grid">
+    <div class="setting-card">
+      <h4>Données favoris</h4>
+      <p>Supprimer tous tes favoris sauvegardés</p>
+      <button class="btn danger" onclick="clearFavorites()">🗑️ Vider les favoris</button>
+    </div>
+    <div class="setting-card">
+      <h4>Historique vu</h4>
+      <p>Supprimer tous les films marqués comme vus</p>
+      <button class="btn danger" onclick="clearWatched()">🗑️ Vider l'historique</button>
+    </div>
+    <div class="setting-card">
+      <h4>Réinitialiser le profil</h4>
+      <p>Efface le profil local uniquement</p>
+      <button class="btn danger" onclick="resetProfile()">♻️ Réinitialiser</button>
+    </div>
+    <div class="setting-card">
+      <h4>Langue de l'API</h4>
+      <p>Langue utilisée pour les titres et descriptions</p>
+      <select class="ghost" id="apiLangSelect" onchange="saveApiLang()">
+        <option value="fr-FR">Français</option>
+        <option value="en-US">English</option>
+      </select>
+    </div>
+  </div>
+</section>
+```
+
   </main>
 </div>
 
 <!-- DETAIL MODAL -->
+
 <div class="detail-backdrop" id="detailBackdrop" onclick="closeDetailIfOuter(event)">
   <div class="detail-modal" id="detailModal">
     <div class="detail-hero">
@@ -598,6 +632,7 @@ img{display:block}
 </div>
 
 <!-- RATING MODAL -->
+
 <div class="modal-backdrop" id="ratingModal">
   <div class="modal">
     <h3 id="ratingTitle">Noter le film</h3>
@@ -617,7 +652,6 @@ img{display:block}
 const API_KEY='dbf9646c1291b4d328ae1ba516389be2';
 const IMG='https://image.tmdb.org/t/p/w500';
 const IMG_ORIG='https://image.tmdb.org/t/p/original';
-const ANTHROPIC_KEY='';
 
 // PLATFORMS
 const ALL_PLATFORMS=[
@@ -678,7 +712,7 @@ const EMOJI_MOVIES=[
   {emojis:'🚢🧊💑',answer:'Titanic',title:'Titanic'},
   {emojis:'🧙‍♂️💍🌋',answer:'Le Seigneur des Anneaux',title:'Le Seigneur des Anneaux'},
   {emojis:'🃏🦇🌆',answer:'Batman',title:'Batman'},
-  {emojis:'🧸🍯🐝',answer:'Winnie l\'Ourson',title:'Winnie l\'Ourson'},
+  {emojis:'🧸🍯🐝',answer:"Winnie l'Ourson",title:"Winnie l'Ourson"},
   {emojis:'🌌⭐🚀👽',answer:'Star Wars',title:'Star Wars'},
   {emojis:'🦈🏖️😱',answer:'Les Dents de la Mer',title:'Les Dents de la Mer'},
   {emojis:'🤖🔴⚡',answer:'Transformers',title:'Transformers'},
@@ -691,15 +725,13 @@ const EMOJI_MOVIES=[
   {emojis:'🐘🎪🦋',answer:'Dumbo',title:'Dumbo'},
   {emojis:'💎🚂🎁',answer:'Le Pôle Express',title:'Le Pôle Express'},
   {emojis:'🎻⚓🇮🇹',answer:'Pinocchio',title:'Pinocchio'},
-  {emojis:'🌊🏄🦈',answer:'Soul Surfer',title:'Soul Surfer'},
   {emojis:'🧟‍♂️🧟‍♀️🔫',answer:'Resident Evil',title:'Resident Evil'},
   {emojis:'⚡🔨👨‍🦱',answer:'Thor',title:'Thor'},
   {emojis:'🦸‍♀️⭐🇺🇸',answer:'Wonder Woman',title:'Wonder Woman'},
   {emojis:'🔴🤖💪',answer:'Iron Man',title:'Iron Man'},
-  {emojis:'🐬🌊🤿',answer:'Flipper',title:'Flipper'},
 ];
 const EMOJI_TV=[
-  {emojis:'🩺🏥💉😰',answer:'Grey\'s Anatomy',title:'Grey\'s Anatomy'},
+  {emojis:'🩺🏥💉😰',answer:"Grey's Anatomy",title:"Grey's Anatomy"},
   {emojis:'⚗️🧪💊🔥',answer:'Breaking Bad',title:'Breaking Bad'},
   {emojis:'🏰🐉⚔️',answer:'Game of Thrones',title:'Game of Thrones'},
   {emojis:'🕵️‍♂️🔎🔢',answer:'Lost',title:'Lost'},
@@ -713,7 +745,6 @@ const EMOJI_TV=[
   {emojis:'🕵️📸🔍💀',answer:'Mindhunter',title:'Mindhunter'},
   {emojis:'👑🟡🍩🏠',answer:'Les Simpson',title:'Les Simpson'},
   {emojis:'🔥💻🎯🏦',answer:'Mr. Robot',title:'Mr. Robot'},
-  {emojis:'🌊🏝️🐍🦟',answer:'Lost',title:'Lost'},
 ];
 
 // FIND EXAMPLES
@@ -736,6 +767,25 @@ const apiUrl=(path)=>`https://api.themoviedb.org/3${path}`;
 const fetchJ=url=>fetch(url).then(r=>r.json());
 const region=()=>apiLang.startsWith('fr')?'FR':'US';
 const esc=s=>String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+
+// ---- ADSENSE ----
+function loadAds(){
+  try{
+    (window.adsbygoogle=window.adsbygoogle||[]).push({});
+  }catch(e){
+    console.log('Erreur AdSense :',e);
+  }
+}
+function refreshAds(){
+  // On recharge les ins non encore initialisées
+  setTimeout(()=>{
+    document.querySelectorAll('.page.active ins.adsbygoogle').forEach(ins=>{
+      if(!ins.getAttribute('data-ad-status')){
+        try{(window.adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}
+      }
+    });
+  },500);
+}
 
 // ---- AUTH ----
 function switchAuthTab(tab){
@@ -795,6 +845,8 @@ function initApp(){
   $('accSince').textContent=currentUser?.since||'-';
   $('accFavCount').textContent=favorites.length;
   $('accWatchCount').textContent=watched.length;
+  // Charge les pubs de la page active au démarrage
+  refreshAds();
 }
 function renderSidebar(){
   if(!currentUser)return;
@@ -820,7 +872,7 @@ function buildMultiSelect(elId,options){
   const el=$(elId);
   el.innerHTML=options.map(o=>`
     <label class="multi-select-item" onclick="toggleMulti(event,'${elId}','${o.id}')">
-      <input type="checkbox" value="${o.id}" onchange=""> ${esc(o.name)}
+      <input type="checkbox" value="${o.id}"> ${esc(o.name)}
     </label>`).join('');
 }
 function toggleMulti(e,elId,val){
@@ -835,15 +887,17 @@ function getMultiSelected(elId){
 }
 
 // ---- PAGE NAV ----
-function showPage(id){   currentPageId=id;    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));   document.querySelectorAll('.nav-item').forEach(b=>b.classList.toggle('active',b.dataset.page===id));   document.getElementById(id+'Page').classList.add('active');    // 🔥 recharge les pubs   refreshAds();    if(id==='favorites')renderFavorites();   if(id==='watched')renderWatched();   if(id==='upcoming')loadUpcoming();   if(id==='games'){     document.getElementById('gamesMenu').style.display='block';     document.getElementById('emojiGameArea').style.display='none';   } }
+function showPage(id){
   currentPageId=id;
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(b=>b.classList.toggle('active',b.dataset.page===id));
-  $(`${id}Page`).classList.add('active');
+  document.getElementById(id+'Page').classList.add('active');
   if(id==='favorites')renderFavorites();
   if(id==='watched')renderWatched();
   if(id==='upcoming')loadUpcoming();
   if(id==='games'){$('gamesMenu').style.display='block';$('emojiGameArea').style.display='none'}
+  // Recharge les pubs à chaque changement de page
+  refreshAds();
 }
 function toggleSidebar(){$('sidebar').classList.toggle('open');$('overlay').classList.toggle('show')}
 function closeSidebar(){$('sidebar').classList.remove('open');$('overlay').classList.remove('show')}
@@ -950,13 +1004,11 @@ async function openDetail(id,type='movie'){
     $('detailPoster').src=poster;
     $('detailBg').src=bg;
     $('detailOverview').textContent=details.overview||'Aucune description disponible.';
-    // META BADGES
     const genres=(details.genres||[]).slice(0,3).map(g=>`<span class="badge genre">${g.name}</span>`).join('');
     const score=`<span class="badge score">⭐ ${details.vote_average?details.vote_average.toFixed(1):'?'}</span>`;
     const year=`<span class="badge">${(details.release_date||details.first_air_date||'').slice(0,4)}</span>`;
     const runtime=details.runtime?`<span class="badge">${details.runtime} min</span>`:details.episode_run_time?.[0]?`<span class="badge">${details.episode_run_time[0]} min/ep</span>`:'';
     $('detailMeta').innerHTML=score+year+runtime+genres;
-    // STREAMING
     const box=providers.results?.[region()];
     const streamList=box?.flatrate||box?.rent||[];
     if(streamList.length){
@@ -969,7 +1021,6 @@ async function openDetail(id,type='movie'){
     } else {
       $('detailStreamingSection').style.display='none';
     }
-    // CAST
     const cast=(credits.cast||[]).slice(0,10);
     $('detailCast').innerHTML=cast.map(a=>`
       <div class="cast-item">
@@ -977,13 +1028,11 @@ async function openDetail(id,type='movie'){
         <div class="cast-name" title="${esc(a.name)}">${esc(a.name)}</div>
         <div class="cast-char" title="${esc(a.character||'')}">as ${esc(a.character||'?')}</div>
       </div>`).join('');
-    // TRAILER
     const trailers=(videos.results||[]).filter(v=>v.site==='YouTube'&&(v.type==='Trailer'||v.type==='Teaser'));
     const trailer=trailers[0];
     $('detailTrailer').innerHTML=trailer
       ?`<div class="trailer-wrap"><iframe src="https://www.youtube.com/embed/${trailer.key}?autoplay=0&rel=0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`
       :`<div class="no-trailer">🎬 Aucune bande-annonce disponible</div>`;
-    // ACTIONS
     const fav=favorites.some(x=>x.id===details.id&&x._type===type);
     const seen=watched.some(x=>x.id===details.id&&x._type===type);
     const pl=encodeURIComponent(JSON.stringify({...details,_type:type}));
@@ -1096,7 +1145,7 @@ function watchedCard(m,i){
     </div>
   </div>`;
 }
-function removeWatched(i){watched.splice(i,1);saveAll();renderWatched();toast('Retiré de l\'historique')}
+function removeWatched(i){watched.splice(i,1);saveAll();renderWatched();toast("Retiré de l'historique")}
 
 // ---- RANDOM ----
 async function doRandom(){
@@ -1151,7 +1200,7 @@ async function loadUpcoming(){
   }catch{$('upcomingResults').innerHTML='<div class="empty">❌ Erreur</div>'}
 }
 
-// ---- FIND WITH AI (TMDB keyword search) ----
+// ---- FIND WITH AI ----
 const FIND_GENRE_MAP={
   'science-fiction':'878','sci-fi':'878','espace':'878','robot':'878','ia':'878','futur':'878',
   'horreur':'27','peur':'27','effrayant':'27','monstre':'27',
@@ -1173,20 +1222,17 @@ async function doFindWithAI(){
   if(!input){toast('Décris ce que tu cherches !');return}
   $('findResult').innerHTML=`<div class="loading" style="padding:24px"><div class="spinner"></div>L'IA cherche pour toi...</div>`;
   try{
-    // Extract keywords from description to build TMDB query
     const lower=input.toLowerCase();
     const genreIds=[];
     for(const [kw,id] of Object.entries(FIND_GENRE_MAP)){
       if(lower.includes(kw)&&!genreIds.includes(id))genreIds.push(id);
     }
-    // Also try text search
     const words=input.split(/\s+/).filter(w=>w.length>3).slice(0,3).join(' ');
     const type=findType;
     const [searchData,discoverData]=await Promise.all([
       fetchJ(apiUrl(`/search/${type}?api_key=${API_KEY}&query=${encodeURIComponent(words)}&language=${apiLang}&page=1`)),
       genreIds.length?fetchJ(apiUrl(`/discover/${type}?api_key=${API_KEY}&language=${apiLang}&sort_by=vote_average.desc&vote_count.gte=100&with_genres=${genreIds.slice(0,3).join(',')}&page=1`)):Promise.resolve({results:[]}),
     ]);
-    // Merge and deduplicate, score by relevance
     const seen_ids=new Set();
     const merged=[];
     for(const m of [...(searchData.results||[]).slice(0,5),...(discoverData.results||[]).slice(0,8)]){
@@ -1289,7 +1335,7 @@ function renderGameOver(){
         <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
           <button class="btn primary" onclick="startEmojiGame('movie')">🎬 Rejouer Films</button>
           <button class="btn accent3" onclick="startEmojiGame('tv')">📺 Rejouer Séries</button>
-          <button class="btn soft" onclick="$('gamesMenu').style.display='block';$('emojiGameArea').style.display='none'">← Menu Jeux</button>
+          <button class="btn soft" onclick="document.getElementById('gamesMenu').style.display='block';document.getElementById('emojiGameArea').style.display='none'">← Menu Jeux</button>
         </div>
       </div>
     </div>`;
@@ -1317,26 +1363,7 @@ if(currentUser){
   $('appLayout').style.display='grid';
   initApp();
 }
-</script
-  // Gestion des pubs Google AdSense
-function loadAds(){
-  try{
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  }catch(e){
-    console.log("Erreur AdSense :", e);
-  }
-}
+</script>
 
-// Charger les pubs au démarrage
-window.addEventListener("load", () => {
-  loadAds();
-});
-
-// Recharger les pubs quand tu changes de page
-function refreshAds(){
-  setTimeout(() => {
-    loadAds();
-  }, 500);
-}>
 </body>
 </html>
